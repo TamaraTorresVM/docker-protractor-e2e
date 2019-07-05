@@ -31,11 +31,18 @@ RUN npm install -g protractor && \
 
 RUN npm install -g @angular/cli -y 
 
-RUN npm install -g n
+#Get node from npm 
+RUN  npm install -g n
 
+#get chronium-browser
+RUN  apt-get update --fix-missing && \
+  apt-get install -y nodejs chromium-browser
+
+#cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY  ./gear2  /project/
+#Copy the app version to test
+COPY  ./gear2  /project
 
 # Add a non-privileged user for running Protrator
 RUN adduser --home /project --uid 1100 \
