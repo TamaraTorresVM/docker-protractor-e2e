@@ -24,7 +24,7 @@ RUN  wget -qO- https://github.com/cloudfoundry-incubator/credhub-cli/releases/do
 
 RUN npm install npm@latest -g
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
   apt-get update --fix-missing && \
   apt-get install -y nodejs chromium-browser
 
